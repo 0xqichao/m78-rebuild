@@ -12,7 +12,7 @@ const DonateButton = ({ onUpdateDonors }) => {
   // 获取合约余额和捐赠人数
   const fetchDonationData = async () => {
     try {
-      const contract = await getContract("0x5FbDB2315678afecb367f032d93F642f64180aa3", contractABI);
+      const contract = await getContract("0x636CdC4380a6D307c50871aDCbd1de7e74a8e04C", contractABI);
       const provider = new ethers.BrowserProvider(window.ethereum);
 
       // 获取合约余额
@@ -42,7 +42,7 @@ const DonateButton = ({ onUpdateDonors }) => {
   const handleDonate = async () => {
     try {
       const userAddress = await connectWallet();
-      const contract = await getContract("0x5FbDB2315678afecb367f032d93F642f64180aa3", contractABI);
+      const contract = await getContract("0x636CdC4380a6D307c50871aDCbd1de7e74a8e04C", contractABI);
       const tx = await contract.fund({ value: ethers.parseEther(amount) });
       await tx.wait();
       alert("捐赠成功！");
